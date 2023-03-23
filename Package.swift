@@ -17,7 +17,8 @@ let package = Package(
         .binaryTarget(
             name: "HMSHLSPlayerSDK",
             url: "https://github.com/100mslive/100ms-ios-hls-sdk/releases/download/0.0.2/HMSHLSPlayerSDK.xcframework.zip",
-            checksum: "470932129c8dd358ebbe748bc1e05739f33c642779513fee17e42a117329dce2"
+            checksum: "470932129c8dd358ebbe748bc1e05739f33c642779513fee17e42a117329dce2",
+            dependencies:["HMSAnalyticsSDK"]
         )
     ]
 )
