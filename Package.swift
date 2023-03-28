@@ -8,16 +8,17 @@ let package = Package(
     products: [
         .library(
             name: "HMSHLSPlayerSDK",
-            targets: ["HMSHLSPlayerSDK"])
+            targets: ["HMSHLSPlayerSDK", "MyFramework-Dependencies"])
     ],
     dependencies: [
-        .package(url: "https://github.com/100mslive/100ms-ios-analytics-sdk", from: "0.0.2"),
+        .package(name: "HMSAnalyticsSDK", url: "https://github.com/100mslive/100ms-ios-analytics-sdk", from: "0.0.2"),
     ],
     targets: [
         .binaryTarget(
             name: "HMSHLSPlayerSDK",
             url: "https://github.com/100mslive/100ms-ios-hls-sdk/releases/download/0.0.2/HMSHLSPlayerSDK.xcframework.zip",
             checksum: "470932129c8dd358ebbe748bc1e05739f33c642779513fee17e42a117329dce2"
-        )
+        ),
+        .target(name: "MyFramework-Dependencies", dependencies: ["HMSAnalyticsSDK"], path: "MyFramework-Dependencies")
     ]
 )
