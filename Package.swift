@@ -7,16 +7,16 @@ let package = Package(
     platforms: [.iOS(.v12)],
     products: [
         .library(
-            name: "HMSAnalyticsSDK",
-            targets: ["HMSAnalyticsSDK"]),
-        .library(
             name: "HMSHLSPlayerSDK",
             targets: ["HMSHLSPlayerSDK"])
     ],
     dependencies: [
-        .product(name: "HMSAnalyticsSDK", package: "HMSHLSPlayerSDK"),
+        .package(url: "https://github.com/100mslive/100ms-ios-analytics-sdk", from: "0.0.2"),
     ],
     targets: [
+        .target(name: "HMSHLSPlayerSDK",
+                dependencies: ["HMSAnalyticsSDK", "HMSHLSPlayerSDK"]
+        ),
         .binaryTarget(
             name: "HMSAnalyticsSDK",
             url: "https://github.com/100mslive/100ms-ios-analytics-sdk/releases/download/0.0.2/HMSHLSPlayerSDK.xcframework.zip",
@@ -25,7 +25,7 @@ let package = Package(
         .binaryTarget(
             name: "HMSHLSPlayerSDK",
             url: "https://github.com/100mslive/100ms-ios-hls-sdk/releases/download/0.0.2/HMSHLSPlayerSDK.xcframework.zip",
-            checksum: "470932129c8dd358ebbe748bc1e05739f33c642779513fee17e42a117329dce2",
+            checksum: "470932129c8dd358ebbe748bc1e05739f33c642779513fee17e42a117329dce2"
         )
     ]
 )
