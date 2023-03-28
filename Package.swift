@@ -14,7 +14,7 @@ let package = Package(
         .package(url: "https://github.com/100mslive/100ms-ios-analytics-sdk", from: "0.0.2"),
     ],
     targets: [
-        .target(name: "HMSHLSPlayerSDK",
+        .target(name: "HMSHLSPlayerSDKPackage",
                 dependencies: ["HMSAnalyticsSDK", "HMSHLSPlayerSDK"]
         ),
         .binaryTarget(
